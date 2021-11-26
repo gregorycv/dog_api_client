@@ -3,7 +3,7 @@ import { Button } from './button';
 import { Modal } from '../modal';
 import { BREEDS_PER_PAGE } from '../../utils/constants';
 
-const getPageFromArray = (array, currentPage) => {
+const getPageItemsFromArray = (array, currentPage) => {
   const startIdx = currentPage * BREEDS_PER_PAGE;
   const endIdx = startIdx + BREEDS_PER_PAGE;
   return array.slice(startIdx, endIdx);
@@ -18,7 +18,7 @@ export const ButtonList = ({ breeds }) => {
   const [modalBreed, setModalBreed] = useState(''); 
 
   useEffect(() => {
-    if (breeds) setCurrentBreeds(getPageFromArray(breeds, currentPage));
+    if (breeds) setCurrentBreeds(getPageItemsFromArray(breeds, currentPage));
   }, [breeds, currentPage]);
 
   const navigateTo = (step) => {
@@ -28,8 +28,10 @@ export const ButtonList = ({ breeds }) => {
     }
   }
 
+  const hideModal = () => setModalBreed('');
+
   return <>
-    {modalBreed && <Modal breed={modalBreed} />}
+    {modalBreed && <Modal breed={modalBreed} onClose={hideModal} />}
     <ul>
       {currentBreeds.map(breed => <li key={breed}>
         <Button breedName={breed} onClick={() => setModalBreed(breed)} />
