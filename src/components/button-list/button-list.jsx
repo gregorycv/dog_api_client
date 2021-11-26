@@ -30,16 +30,16 @@ export const ButtonList = ({ breeds }) => {
 
   const hideModal = () => setModalBreed('');
 
-  return <>
+  return breeds ? <>
     {modalBreed && <Modal breed={modalBreed} onClose={hideModal} />}
-    <div>
-      <button onClick={() => navigateTo(previous)}>previous</button>
-      <button onClick={() => navigateTo(next)}>next</button>
+    <div className='navigation'>
+      <button className={currentPage === 0 ? 'disabled' : ''} onClick={() => navigateTo(previous)}>previous</button>
+      <button className={currentPage === Math.floor(breeds.length / BREEDS_PER_PAGE) ? 'disabled' : ''} onClick={() => navigateTo(next)}>next</button>
     </div>
     <ul>
       {currentBreeds.map(breed => <li key={breed}>
-        <Button breedName={breed} onClick={() => setModalBreed(breed)} />
+        <Button breed={breed} onClick={() => setModalBreed(breed)} />
       </li>)}
     </ul>
-  </>
+  </> : <p>Loading breeds...</p>
 }
