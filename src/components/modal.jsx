@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { getRandomBreedImage } from "../services/api-service";
+import React, { useState, useEffect, useCallback } from 'react';
+import { getRandomBreedImage } from '../services/api-service';
 
 export const Modal = ({ breed, onClose }) => {
-  const [imgUrl, setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState('');
 
   const getNewImageUrl = useCallback(async () => {
     const newImgUrl = await getRandomBreedImage(breed);

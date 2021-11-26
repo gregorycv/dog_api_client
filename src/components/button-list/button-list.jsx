@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Button } from "./button";
-import { Modal } from "../modal";
-import { BREEDS_PER_PAGE } from "../../utils/constants";
+import React, { useState } from 'react';
+import { Button } from './button';
+import { Modal } from '../modal';
+import { BREEDS_PER_PAGE } from '../../utils/constants';
 
 const previous = -1;
 const next = 1;
 
 export const ButtonList = ({ breeds }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [modalBreed, setModalBreed] = useState("");
+  const [modalBreed, setModalBreed] = useState('');
 
   const navigateTo = (step) => {
     const newCurrentPage = currentPage + step;
@@ -26,14 +26,14 @@ export const ButtonList = ({ breeds }) => {
     return breeds.slice(startIdx, endIdx);
   };
 
-  const hideModal = () => setModalBreed("");
+  const hideModal = () => setModalBreed('');
 
   return breeds ? (
     <>
       {modalBreed && <Modal breed={modalBreed} onClose={hideModal} />}
       <div className="navigation">
         <button
-          className={currentPage === 0 ? "disabled" : ""}
+          className={currentPage === 0 ? 'disabled' : ''}
           onClick={() => navigateTo(previous)}
         >
           previous
@@ -41,8 +41,8 @@ export const ButtonList = ({ breeds }) => {
         <button
           className={
             currentPage === Math.floor(breeds.length / BREEDS_PER_PAGE)
-              ? "disabled"
-              : ""
+              ? 'disabled'
+              : ''
           }
           onClick={() => navigateTo(next)}
         >
