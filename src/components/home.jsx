@@ -12,9 +12,6 @@ export const Home = () => {
     })();
   }, []);
 
-  console.log(breeds);
-  console.log('home');
-
   return <div className='home'>
     <ButtonList breeds={breeds}/>
   </div>;
