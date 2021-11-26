@@ -32,14 +32,14 @@ export const ButtonList = ({ breeds }) => {
 
   return <>
     {modalBreed && <Modal breed={modalBreed} onClose={hideModal} />}
+    <div>
+      <button onClick={() => navigateTo(previous)}>previous</button>
+      <button onClick={() => navigateTo(next)}>next</button>
+    </div>
     <ul>
       {currentBreeds.map(breed => <li key={breed}>
         <Button breedName={breed} onClick={() => setModalBreed(breed)} />
       </li>)}
     </ul>
-    <div>
-      <button onClick={() => navigateTo(previous)}>previous</button>
-      <button onClick={() => navigateTo(next)}>next</button>
-    </div>
   </>
 }

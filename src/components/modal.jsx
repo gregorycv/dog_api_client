@@ -13,9 +13,11 @@ export const Modal = ({ breed, onClose }) => {
     getNewImageUrl();
   }, [getNewImageUrl]);
 
-  return <div>
-    <button onClick={onClose}>close</button>
-    <button onClick={() => getNewImageUrl()}>get next image</button>
-    <img src={imgUrl} alt={breed} />
+  return <div className='modal-background'>
+    <div className='modal-content'>
+      <button onClick={onClose}>close</button>
+      <button onClick={() => getNewImageUrl()}>get next image</button>
+      <img src={imgUrl} alt={breed} />
+    </div>
   </div>
 }

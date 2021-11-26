@@ -15,5 +15,7 @@ export const Home = () => {
   console.log(breeds);
   console.log('home');
 
-  return <ButtonList breeds={breeds}/>;
+  return <div className='home'>
+    <ButtonList breeds={breeds}/>
+  </div>;
 }
