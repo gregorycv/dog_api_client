@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { getAllBreeds } from '../services/api-service';
-import { ButtonList } from './button-list/button-list';
+import React, { useState, useEffect } from "react";
+import { getAllBreeds } from "../services/api-service";
+import { ButtonList } from "./button-list/button-list";
 
 export const Home = () => {
   const [breeds, setBreeds] = useState(null);
@@ -12,7 +12,9 @@ export const Home = () => {
     })();
   }, []);
 
-  return <div className='home'>
-    <ButtonList breeds={breeds}/>
-  </div>;
-}
+  return (
+    <div className="home">
+      <ButtonList breeds={breeds} />
+    </div>
+  );
+};
