@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllBreeds } from '../services/api-service';
-import { ButtonList } from './button-list';
+import { ButtonList } from './button-list/button-list';
 
 export const Home = () => {
   const [breeds, setBreeds] = useState(null);
@@ -13,6 +13,7 @@ export const Home = () => {
   }, []);
 
   console.log(breeds);
+  console.log('home');
 
-  return breeds ? <ButtonList breeds={breeds} /> : <p>Loading...</p>
+  return <ButtonList breeds={breeds}/>;
 }
